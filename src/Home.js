@@ -21,19 +21,19 @@ class Home extends React.Component {
                 bookList={this.props.books}
                 type={"currentlyReading"}
                 title={"Currently Reading"}
-                bookChange={this.props.handleBooksChange}
+                handleShelfUpdate={this.props.handleShelfUpdate}
               />
               <BookShelf
                 bookList={this.props.books}
                 type={"wantToRead"}
                 title={"Want to read"}
-                bookChange={this.props.handleBooksChange}
+                handleShelfUpdate={this.props.handleShelfUpdate}
               />
               <BookShelf
                 bookList={this.props.books}
                 type={"read"}
                 title={"Read"}
-                bookChange={this.props.handleBooksChange}
+                handleShelfUpdate={this.props.handleShelfUpdate}
               />
               <div className="open-search">
                 <Link to="/search">

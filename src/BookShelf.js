@@ -13,7 +13,7 @@ export default function BookShelf(props) {
           <BookSearch
             bookList={filterBooks(props.bookList)}
             booksOwned={props.bookList}
-            bookChange={props.bookChange}
+            handleShelfUpdate={props.handleShelfUpdate}
           />
         </ol>
       </div>

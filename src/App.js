@@ -19,6 +19,14 @@ class BooksApp extends React.Component {
       books: [...bookList],
     });
   };
+
+  handleShelfUpdate = async (shelf, id) => {
+    try {
+      await BooksAPI.update(id, shelf).then(() => this.handleBooksChange());
+    } catch (err) {
+      console.log(err);
+    }
+  };
   render() {
     return (
       <div className="app">
@@ -29,6 +37,7 @@ class BooksApp extends React.Component {
             <Home
               books={this.state.books}
               handleBooksChange={this.handleBooksChange}
+              handleShelfUpdate={this.handleShelfUpdate}
             />
           )}
         />
@@ -39,6 +48,7 @@ class BooksApp extends React.Component {
             <SearchForBook
               books={this.state.books}
               handleBooksChange={this.handleBooksChange}
+              handleShelfUpdate={this.handleShelfUpdate}
             />
           )}
         />

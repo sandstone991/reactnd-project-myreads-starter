@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./App.css";
 import BookSearch from "./Book";
 import * as BooksAPI from "./BooksAPI";
-import { Link } from "react-router-dom";
+
 export default class SearchForBook extends React.Component {
   state = {
     query: "",
@@ -70,6 +71,7 @@ export default class SearchForBook extends React.Component {
               bookList={this.state.bookList}
               booksOwned={this.props.books}
               bookChange={this.props.handleBooksChange}
+              handleShelfUpdate={this.props.handleShelfUpdate}
             />
           </ol>
         </div>

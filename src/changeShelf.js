@@ -1,16 +1,9 @@
 import React from "react";
-import * as BooksAPI from "./BooksAPI";
 export default function ChangeShelf(props) {
-  const handleShelfUpdate = async (shelf, id) => {
-    try {
-      await BooksAPI.update(id, shelf).then(() => props.bookChange());
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //props.handleShelfUpdate
   const handleChange = (event) => {
     let shelf = event.target.value;
-    handleShelfUpdate(shelf, props.bookID);
+    props.handleShelfUpdate(shelf, props.bookID);
   };
 
   //bookID -> current book .. booksOwned is the books owned rigt now

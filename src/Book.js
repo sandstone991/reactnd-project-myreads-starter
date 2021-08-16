@@ -22,8 +22,8 @@ export default function BookSearch(props) {
             />
             <ChangeShelf
               bookID={book}
-              bookChange={props.bookChange}
               booksOwned={props.booksOwned}
+              handleShelfUpdate={props.handleShelfUpdate}
             />
           </div>
           <div className="book-title">{book.title}</div>
