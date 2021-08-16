@@ -2,6 +2,7 @@ import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookShelf from './BookShelf'
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component{
 
@@ -40,7 +41,9 @@ class Home extends React.Component{
                <BookShelf bookList={this.state.books} type={'currentlyReading'} title={'Currently Reading'} bookChange={this.handleBooksChange}/>
                <BookShelf bookList={this.state.books} type={'wantToRead'} title={'Want to read'} bookChange={this.handleBooksChange}/>
                <BookShelf bookList={this.state.books} type={'read'} title={'Read'}  bookChange={this.handleBooksChange} />
-
+               <div className="open-search">
+              <Link to='/search'><button>Add a book</button></Link>
+            </div>
 
             </div>
             </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import BookSearch from './BookSearch'
 import * as BooksAPI from './BooksAPI'
+import { Link } from 'react-router-dom'
 export default class SearchForBook extends React.Component {
     state = {
         query: '',
@@ -54,8 +55,7 @@ export default class SearchForBook extends React.Component {
             <div>
             <div className="search-books">
                 <div className="search-books-bar">
-                    {/* add a route to the button below */}
-                    <button className="close-search" >Close</button>
+                   <Link to='/'><button className="close-search">Close</button></Link>
                     <div className="search-books-input-wrapper">
                         {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
