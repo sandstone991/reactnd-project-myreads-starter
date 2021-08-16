@@ -32,7 +32,6 @@ const handleChange = (event)=>{
   else {return 'none'}
 }
 
-let defaultValue= typeof props.bookID.shelf==='undefined'?'none': props.bookID.shelf;
 
 return(     
 
