@@ -1,5 +1,5 @@
 import React from 'react'
-import BookSearch from './BookSearch'
+import BookSearch from './Book'
 
 export default function BookShelf (props){
 

@@ -2,6 +2,10 @@ import React from 'react'
 import * as BooksAPI from './BooksAPI'
 export default function ChangeShelf (props){
 
+let options = [{value:'currentlyReading', text:'Currently reading'},
+{value:'wantToRead', text:'Want to read'},
+{value:'read',text:'Read'},
+{value:'none',text:'None'}]
 const handleShelfUpdate = async(shelf,id)=>{
 try{
 await BooksAPI.update(id, shelf)
@@ -21,16 +25,22 @@ const handleChange = (event)=>{
 }
 
 
+let defaultValue= typeof props.bookID.shelf==='undefined'?'none': props.bookID.shelf;
+
 return(     
 
                  <div className="book-shelf-changer">
-                              <select onChange={handleChange}>
+                              <select onChange={handleChange} >
                                 <option value="move" disabled>Move to...</option>
-                                <option value='none'>----------</option>
-                                <option value="currentlyReading">Currently Reading</option>
-                                <option value="wantToRead">Want to Read</option>
-                                <option value="read">Read</option>
-                                <option value="none">None</option>
+                                {options.map(opt=>{
+                                  if(opt.value===defaultValue){
+                                  return (
+                                    <option value={opt.value} selected>{opt.text}</option>
+                                  )}
+                                  else{
+                                    return (<option value={opt.value}>{opt.text}</option>)
+                                  }
+                                })}
                                 
                               </select>
                             </div>
