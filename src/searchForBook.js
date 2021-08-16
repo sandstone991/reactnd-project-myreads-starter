@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import BookSearch from './BookSearch'
+import BookSearch from './Book'
 import * as BooksAPI from './BooksAPI'
 import { Link } from 'react-router-dom'
 export default class SearchForBook extends React.Component {
@@ -24,7 +24,7 @@ export default class SearchForBook extends React.Component {
         let response = await BooksAPI.search(query)
         let books = await response
         try {
-                console.log(books)
+            
        //If its an array set the state to it
         if(Array.isArray(books)){
                 this.setState({
@@ -71,7 +71,7 @@ export default class SearchForBook extends React.Component {
                 </div>
             </div>
               <div className="search-books-results">
-              <ol className="books-grid"><BookSearch bookList={this.state.bookList}/></ol></div>
+              <ol className="books-grid"><BookSearch bookList={this.state.bookList} booksOwned={this.props.books}  bookChange={this.props.handleBooksChange} /></ol></div>
             </div>
         )
     }

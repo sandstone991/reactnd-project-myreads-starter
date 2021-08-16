@@ -18,7 +18,7 @@ export default function BookSearch(props){
                                >
 
                             </div>
-                           <ChangeShelf bookID={book} bookChange={props.bookChange}/>
+                           <ChangeShelf bookID={book}  bookChange={props.bookChange} booksOwned={props.booksOwned}/>
                           </div>
                           <div className="book-title">{book.title}</div>
                           <div className="book-authors">{Array.isArray(book.authors)?book.authors.toString():book.authors}</div>

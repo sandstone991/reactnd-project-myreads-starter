@@ -1,30 +1,12 @@
 import React from 'react'
-import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookShelf from './BookShelf'
 import { Link } from 'react-router-dom'
 
 class Home extends React.Component{
 
- state={
-     books:[]
-  }
-  getBooks = async()=>{
-        let bookList = await BooksAPI.getAll();
-        return bookList
-   }
- handleBooksChange = async ()=>{
-  let bookList = await this.getBooks()
-   this.setState({
-            books:[...bookList]
-        })
- }
    async componentDidMount(){
-        let bookList = await this.getBooks()
-       console.log(bookList)
-        this.setState({
-            books:[...bookList]
-        })
+      await this.props.handleBooksChange()
    }
   
     render(){
@@ -38,9 +20,9 @@ class Home extends React.Component{
             </div>
             <div className="list-books-content">
               <div>
-               <BookShelf bookList={this.state.books} type={'currentlyReading'} title={'Currently Reading'} bookChange={this.handleBooksChange}/>
-               <BookShelf bookList={this.state.books} type={'wantToRead'} title={'Want to read'} bookChange={this.handleBooksChange}/>
-               <BookShelf bookList={this.state.books} type={'read'} title={'Read'}  bookChange={this.handleBooksChange} />
+               <BookShelf bookList={this.props.books} type={'currentlyReading'} title={'Currently Reading'} bookChange={this.props.handleBooksChange}/>
+               <BookShelf bookList={this.props.books} type={'wantToRead'} title={'Want to read'} bookChange={this.props.handleBooksChange}/>
+               <BookShelf bookList={this.props.books} type={'read'} title={'Read'}  bookChange={this.props.handleBooksChange} />
                <div className="open-search">
               <Link to='/search'><button>Add a book</button></Link>
             </div>
@@ -55,7 +37,4 @@ class Home extends React.Component{
 }
 
 export default Home;
-            /*
-            <div className="open-search">
-              <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
-            */
+        
